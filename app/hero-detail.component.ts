@@ -13,21 +13,8 @@ import { HeroService } from './hero.service';
   moduleId: module.id,
   selector: 'my-hero-detail',
   templateUrl: 'hero-detail.component.html',
-  /*
-  template: `
-  DAMMIT
-<div *ngIf="hero">
-  <h2>{{hero.name}} details!</h2>
-  <div>
-    <label>id: </label>{{hero.id}}</div>
-  <div>
-    <label>name: </label>
-    <input [(ngModel)]="hero.name" placeholder="name" />
-  </div>
-  <button (click)="goBack()">Back</button>
-</div>
-  `
-  */
+  styleUrls: [ 'hero-detail.component.css' ]
+
 })
 
 

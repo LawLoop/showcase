@@ -1,4 +1,6 @@
 <?php
+header('Access-Control-Allow-Origin: *');
+header('Content-Type: application/json');
 
 $heroes = [
 			['id' => 11, 'name' => 'Mr. Nice'],
@@ -13,7 +15,6 @@ $heroes = [
 			['id' => 20, 'name' => 'Tornado']
 		];
 
-header('Access-Control-Allow-Origin: *');
-header('Content-Type: application/json');
 echo json_encode(['data' => $heroes]);
+
 exit;
