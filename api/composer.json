@@ -1,0 +1,6 @@
+{
+    "require": {
+        "aws/aws-sdk-php": "^3.19",
+        "klein/klein": "^2.1"
+    }
+}
