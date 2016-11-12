@@ -9,6 +9,8 @@ use Aws\Common\Exception\MultipartUploadException;
 use Aws\S3\Model\MultipartUpload\UploadBuilder;
 use Aws\S3\Model\ClearBucket;
 
+require_once 'Database.inc.php';
+
 class Model implements JsonSerializable
 {
 	protected $_data = [];
@@ -40,7 +42,7 @@ class Model implements JsonSerializable
 
 	public static function tablename()
 	{
-		return Model::UnderscoreFromCamelCase(get_called_class());
+		return Model::UnderscoreFromCamelCase(get_called_class()).'s';
 	}
 
 	public static function tables()

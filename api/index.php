@@ -1,54 +1,82 @@
 <?php
 
 require_once 'vendor/autoload.php';
+require_once 'SQLModel.inc.php';
+require_once 'models/User.php';
 
 $klein = new \Klein\Klein();
 
 $klein->with('/api',function () use ($klein) {
 
+    $klein->respond(['GET','POST'], '/authenticate', function ($request, $response)
+    {
+        $user = User::find(['username' => $request->username]);
 
-	$klein->respond('POST','/authenticate', function()
-	{
-		return 'Authenticate->post($request->username,$request->password)';
-		/*
-		require 'authenticate/AuthenticateController.php';
-		$controller = new AuthenticateController();
-		$controller->post();
-		*/
-	});
-
-	$klein->respond('GET','/authenticate', function($request,$response)
-	{
-		$method = strtolower($request->method());
-		return "Authenticate->{$method}()";
-		/*
-		require 'authenticate/AuthenticateController.php';
-		$controller = new AuthenticateController();
-		$controller->post();
-		*/
-	});
-
-
-	$klein->respond('GET', '/[:entity]/[:id]', function($request,$response)
-		{
-			return "{$request->entity}/$request->id/index.php";
-
-		});
-
-/*
-	$klein->respond('GET', '/api/hello-world', function () {
-    	return 'Hello World!';
-	});
-
-
-    $klein->respond('GET', '/?', function ($request, $response) {
-        // Show all users
+        if(isset($user))
+        {
+            $response->json($user);
+        }
+        else
+        {
+            $response->json(['error' => 'Login failed']);
+        }
     });
 
-    $klein->respond('GET', '/[:id]', function ($request, $response) {
-        // Show a single user
+    // get em all
+    $klein->respond('GET','/users',function($request, $response)
+    {
+        $response->json(User::all(['username']));
     });
-*/
+
+    // get one
+    $klein->response('GET', '/users/[i:id]', function($request, $response)
+    {
+        $user = User::find($request->id);
+        $response->json($user);
+    });
+
+    // update
+    $klein->response('PUT', '/users/[i:id]', function($request, $response)
+    {
+        $user = User::find($request->id);
+        if(!empty($user))
+        {
+            $user->username = $request->username;
+            $user->password = $request->password;
+            $user->firstName = $request->firstName;
+            $user->lastName = $request->lastName;
+            $user->save();
+            $response->json($user);
+        }
+        else
+        {
+            $response->json(['error' => 'User not found']);
+        }
+    });
+
+    // create
+    $klein->response('POST', '/users', function($request, $response)
+    {
+        $user = User::find(['username' => $request->username]);
+
+        if(isset($user))
+        {
+            $response->json(['error' => 'User exists']);
+        }
+        else
+        {
+            $user = new User();
+            $user->username = $request->username;
+            $user->password = $request->password;
+            $user->firstName = $request->firstName;
+            $user->lastName = $request->lastName;
+            $user->save();
+            $response->json($user);
+        }
+    });
+
+
+
 });
-
+//header('Content-Type: application/json');
 $klein->dispatch();

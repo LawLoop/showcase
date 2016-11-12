@@ -1,11 +1,13 @@
 ﻿import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 
+import 'rxjs/add/operator/toPromise';
+
 @Injectable()
 export class UserService {
     constructor(private http: Http) { }
 
-    getAll() {
+    getAll()  {
         return this.http.get('/api/users', this.jwt()).map((response: Response) => response.json());
     }
 
