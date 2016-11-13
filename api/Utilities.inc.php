@@ -33,6 +33,7 @@ use Aws\S3\Model\ClearBucket;
 
 function IsDevelopment()
 {
+    return true;
   return $_SERVER['SERVER_NAME'] === 'local.numberstation.com' || $_SERVER['SERVER_NAME'] === 'nstest_ne.numberstation.com';
 }
 

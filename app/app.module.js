@@ -12,9 +12,6 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 var http_1 = require('@angular/http');
-// used to create fake backend
-//import { fakeBackendProvider } from './_helpers/index';
-//import { MockBackend, MockConnection } from '@angular/http/testing';
 var http_2 = require('@angular/http');
 var app_component_1 = require('./app.component');
 var app_routing_1 = require('./app.routing');

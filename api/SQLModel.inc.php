@@ -10,6 +10,7 @@ use Aws\S3\Model\MultipartUpload\UploadBuilder;
 use Aws\S3\Model\ClearBucket;
 
 require_once 'Database.inc.php';
+require_once 'Utilities.inc.php';
 
 class Model implements JsonSerializable
 {
@@ -126,7 +127,8 @@ CQUERY;
 		{
 			if(array_key_exists($n, $values))
 			{
-				$this->$n = $values[$n];
+                $attribute_name = static::CamelCaseFromUnderscore($n);
+				$this->$attribute_name = $values[$n];
 			}
 		}
 		foreach($values as $k => $v)
@@ -336,11 +338,13 @@ CQUERY;
 		foreach($columns as $name => $def)
 		{
 			$type = $def['type'];
-			if(isset($this->$name))
+            $column_name = $name;
+            $attribute_name = static::CamelCaseFromUnderscore($name);
+			if(isset($this->$attribute_name))
 			{
-				$col_names[] = $name;
+				$col_names[] = $column_name;
 				$place_holders[] = '?';
-				$values[] = $this->$name;
+				$values[] = $this->$attribute_name;
 			}
 		}
 		$cstr = implode(', ',$col_names);
@@ -372,10 +376,12 @@ CQUERY;
 		foreach($columns as $name => $def)
 		{
 			$type = $def['type'];
-			if(isset($this->$name) && !in_array($name, $pks))
+            $column_name = $name;
+            $attribute_name = static::CamelCaseFromUnderscore($name);
+			if(isset($this->$attribute_name) && !in_array($column_name, $pks))
 			{
-				$col_names[] = $name . ' = ?';
-				$values[] = $this->$name;
+				$col_names[] = $column_name . ' = ?';
+				$values[] = $this->$attribute_name;
 			}
 		}
 		foreach($pks as $name)
@@ -419,7 +425,8 @@ CQUERY;
 			$r = $rows[0];
 			foreach($r as $k => $v)
 			{
-				$this->$k = $v;
+                $attribute_name = static::CamelCaseFromUnderscore($k);
+				$this->$attribute_name = $v;
 			}
 		}
 	}
