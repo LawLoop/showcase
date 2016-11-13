@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fce95df0-3a47-43bb-adf8-7e18da9bbb2c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/app.css" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/_helpers/fake-backend.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/_helpers/fake-backend.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/_helpers/fake-backend.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/_helpers/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/_helpers/index.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/_helpers/index.ts" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/Database.inc.php" afterPath="$PROJECT_DIR$/api/Database.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/vendor/klein/klein/src/Klein/Request.php" afterPath="$PROJECT_DIR$/api/vendor/klein/klein/src/Klein/Request.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/SQLModel.inc.php" afterPath="$PROJECT_DIR$/api/SQLModel.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/Utilities.inc.php" afterPath="$PROJECT_DIR$/api/Utilities.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.module.js.map" afterPath="$PROJECT_DIR$/app/app.module.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.module.js" afterPath="$PROJECT_DIR$/app/app.module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.module.ts" afterPath="$PROJECT_DIR$/app/app.module.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/index.php" afterPath="$PROJECT_DIR$/api/index.php" />
     </list>
     <ignored path="Angular.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -77,14 +62,14 @@
       <file leaf-file-name="SQLModel.inc.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/SQLModel.inc.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33157894" vertical-offset="4929" max-vertical-offset="8430">
-              <caret line="358" column="0" selection-start-line="358" selection-start-column="0" selection-end-line="358" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.015789473" vertical-offset="7899" max-vertical-offset="8445">
+              <caret line="548" column="55" selection-start-line="548" selection-start-column="55" selection-end-line="548" selection-end-column="55" />
               <folding>
                 <element signature="e#7#26#0#PHP" expanded="true" />
-                <marker date="1479074320000" expanded="true" signature="4166:4180" placeholder="SELECT * fro..." />
-                <marker date="1479074320000" expanded="true" signature="6806:6833" placeholder="DELETE FROM ..." />
-                <marker date="1479074320000" expanded="true" signature="7770:7828" placeholder="INSERT INTO ..." />
-                <marker date="1479074320000" expanded="true" signature="9293:9322" placeholder="SELECT * FRO..." />
+                <marker date="1479074614000" expanded="true" signature="4166:4180" placeholder="SELECT * fro..." />
+                <marker date="1479074614000" expanded="true" signature="6806:6833" placeholder="DELETE FROM ..." />
+                <marker date="1479074614000" expanded="true" signature="7770:7828" placeholder="INSERT INTO ..." />
+                <marker date="1479074614000" expanded="true" signature="9293:9322" placeholder="SELECT * FRO..." />
               </folding>
             </state>
           </provider>
@@ -344,14 +329,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="28" y="62" width="1400" height="838" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32916668" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -623,14 +608,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/SQLModel.inc.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33157894" vertical-offset="4929" max-vertical-offset="8430">
-          <caret line="358" column="0" selection-start-line="358" selection-start-column="0" selection-end-line="358" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.015789473" vertical-offset="7899" max-vertical-offset="8445">
+          <caret line="548" column="55" selection-start-line="548" selection-start-column="55" selection-end-line="548" selection-end-column="55" />
           <folding>
             <element signature="e#7#26#0#PHP" expanded="true" />
-            <marker date="1479074320000" expanded="true" signature="4166:4180" placeholder="SELECT * fro..." />
-            <marker date="1479074320000" expanded="true" signature="6806:6833" placeholder="DELETE FROM ..." />
-            <marker date="1479074320000" expanded="true" signature="7770:7828" placeholder="INSERT INTO ..." />
-            <marker date="1479074320000" expanded="true" signature="9293:9322" placeholder="SELECT * FRO..." />
+            <marker date="1479074614000" expanded="true" signature="4166:4180" placeholder="SELECT * fro..." />
+            <marker date="1479074614000" expanded="true" signature="6806:6833" placeholder="DELETE FROM ..." />
+            <marker date="1479074614000" expanded="true" signature="7770:7828" placeholder="INSERT INTO ..." />
+            <marker date="1479074614000" expanded="true" signature="9293:9322" placeholder="SELECT * FRO..." />
           </folding>
         </state>
       </provider>

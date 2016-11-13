@@ -546,6 +546,7 @@ CQUERY;
 
 	public function __set($name,$value)
 	{
+        $name = static::CamelCaseFromUnderscore($name);
 		if(method_exists($this, ($method = 'set'.ucfirst($name))))
     	{
       		return $this->$method($value);
