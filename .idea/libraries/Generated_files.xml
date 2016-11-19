@@ -2,11 +2,34 @@
   <library name="Generated files" type="javaScript">
     <properties>
       <sourceFilesUrls>
-        <item url="file://$PROJECT_DIR$/app/_helpers/index.js" />
+        <item url="file://$PROJECT_DIR$/app/projects/index.js" />
+        <item url="file://$PROJECT_DIR$/app/matters/index.js" />
+        <item url="file://$PROJECT_DIR$/app/_models/organization.js" />
+        <item url="file://$PROJECT_DIR$/app/matters/matters.component.js" />
+        <item url="file://$PROJECT_DIR$/app/_models/matter.js" />
+        <item url="file://$PROJECT_DIR$/app/_models/project.js" />
+        <item url="file://$PROJECT_DIR$/app/_models/client.js" />
+        <item url="file://$PROJECT_DIR$/app/organizations/organizations.component.js" />
+        <item url="file://$PROJECT_DIR$/app/_models/user.js" />
+        <item url="file://$PROJECT_DIR$/app/projects/projects.component.js" />
+        <item url="file://$PROJECT_DIR$/app/organizations/index.js" />
+        <item url="file://$PROJECT_DIR$/app/_models/MatterType.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
       <root url="file://$PROJECT_DIR$/app/_helpers/index.js" />
+      <root url="file://$PROJECT_DIR$/app/projects/index.js" />
+      <root url="file://$PROJECT_DIR$/app/matters/index.js" />
+      <root url="file://$PROJECT_DIR$/app/matters/matters.component.js" />
+      <root url="file://$PROJECT_DIR$/app/_models/project.js" />
+      <root url="file://$PROJECT_DIR$/app/_models/client.js" />
+      <root url="file://$PROJECT_DIR$/app/projects/projects.component.js" />
+      <root url="file://$PROJECT_DIR$/app/organizations/index.js" />
+      <root url="file://$PROJECT_DIR$/app/_models/organization.js" />
+      <root url="file://$PROJECT_DIR$/app/_models/matter.js" />
+      <root url="file://$PROJECT_DIR$/app/organizations/organizations.component.js" />
+      <root url="file://$PROJECT_DIR$/app/_models/user.js" />
+      <root url="file://$PROJECT_DIR$/app/_models/MatterType.js" />
     </CLASSES>
     <SOURCES />
   </library>
