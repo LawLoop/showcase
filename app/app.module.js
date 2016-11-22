@@ -44,6 +44,7 @@ var AppModule = (function () {
                 index_3.AlertService,
                 index_3.AuthenticationService,
                 index_3.UserService,
+                index_3.ProjectService,
                 // providers used to create fake backend
                 //fakeBackendProvider,
                 //MockBackend,

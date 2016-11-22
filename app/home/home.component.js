@@ -11,9 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var index_1 = require('../_services/index');
 var HomeComponent = (function () {
-    function HomeComponent(userService) {
+    function HomeComponent(userService, projectService) {
         this.userService = userService;
+        this.projectService = projectService;
         this.users = [];
+        this.projects = [];
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     }
     HomeComponent.prototype.ngOnInit = function () {
@@ -23,16 +25,22 @@ var HomeComponent = (function () {
         var _this = this;
         this.userService.delete(id).subscribe(function () { _this.loadAllUsers(); });
     };
+    HomeComponent.prototype.copyDAVLink = function (title) {
+    };
     HomeComponent.prototype.loadAllUsers = function () {
         var _this = this;
         this.userService.getAll().subscribe(function (users) { _this.users = users; });
+    };
+    HomeComponent.prototype.loadAllProjects = function () {
+        var _this = this;
+        this.projectService.getAll().subscribe(function (projects) { _this.projects = projects; });
     };
     HomeComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             templateUrl: 'home.component.html'
         }), 
-        __metadata('design:paramtypes', [index_1.UserService])
+        __metadata('design:paramtypes', [index_1.UserService, index_1.ProjectService])
     ], HomeComponent);
     return HomeComponent;
 }());
