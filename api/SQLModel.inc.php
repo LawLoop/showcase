@@ -235,8 +235,9 @@ CQUERY;
 		return $db;
 	}
 
-	public function __construct()
+	public function __construct($attributes = [])
 	{
+        $this->takeValues($attributes);
 	}
 
 	public function validateRequiredColumns()

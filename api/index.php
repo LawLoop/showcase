@@ -32,6 +32,8 @@ switch ( $_method ) {
 require_once 'vendor/autoload.php';
 require_once 'SQLModel.inc.php';
 require_once 'models/User.php';
+require_once 'models/Project.php';
+require_once 'RESTController.inc.php';
 
 $klein = new \Klein\Klein();
 
@@ -56,64 +58,59 @@ $klein->with('/api',function () use ($klein) {
     // get em all
     $klein->respond('GET','/users',function($request, $response)
     {
-        $response->json(User::all(['username']));
+        $controller = new RESTController('User');
+        $controller->all($request,$response,['username']);
     });
 
     // get one
     $klein->respond('GET', '/users/[i:id]', function($request, $response)
     {
-        $user = User::find($request->id);
-        $response->json($user);
+        $controller = new RESTController('User');
+        $controller->get($request,$response);
     });
 
     // update
     $klein->respond('PUT', '/users/[i:id]', function($request, $response)
     {
-        $user = User::find($request->id);
-        if(!empty($user))
-        {
-            $user->username = $request->username;
-            $user->password = $request->password;
-            $user->firstName = $request->firstName;
-            $user->lastName = $request->lastName;
-            $user->save();
-            $response->json($user);
-        }
-        else
-        {
-            $response->json(['error' => 'User not found']);
-        }
+        $controller = new RESTController('User');
+        $controller->update($request,$response);
+    });
+
+    // Projects
+    // create
+    $klein->respond('POST', '/projects', function($request, $response)
+    {
+        $controller = new RESTController('Project');
+        $controller->create($request,$response);
+    });
+
+    // get em all
+    $klein->respond('GET','/projects',function($request, $response)
+    {
+        $controller = new RESTController('Project');
+        $controller->all($request,$response,['title']);
+    });
+
+    // get one
+    $klein->respond('GET', '/projects/[i:id]', function($request, $response)
+    {
+        $controller = new RESTController('Project');
+        $controller->get($request,$response);
+    });
+
+    // update
+    $klein->respond('PUT', '/projects/[i:id]', function($request, $response)
+    {
+        $controller = new RESTController('Project');
+        $controller->update($request,$response);
     });
 
     // create
-    $klein->respond('POST', '/users', function($request, $response)
+    $klein->respond('POST', '/projects', function($request, $response)
     {
-        $user = User::find(['username' => $request->username]);
-
-        if(isset($user) && is_array($user) && count($user) == 1)
-        {
-            $response->json(['error' => 'User exists']);
-        }
-        else
-        {
-            $user = new User();
-            $user->username = $request->username;
-            $user->password = $request->password;
-            $user->firstName = $request->firstName;
-            $user->lastName = $request->lastName;
-            try
-            {
-                $user->save();
-                $response->json($user);
-            }
-            catch(\Exception $ex)
-            {
-                $response->json(['error' => $ex->getMessage()]);
-
-            }
-        }
+        $controller = new RESTController('Project');
+        $controller->create($request,$response);
     });
-
 
 
 });

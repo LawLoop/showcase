@@ -9,6 +9,15 @@
 class User extends Model
 {
 
+    public function takeValues($values)
+    {
+        parent::takeValues($values);
+        if(isset($values['password']) && !empty($values['password']))
+        {
+            $this->setPassword($values['password']);
+        }
+    }
+
     public function setPassword($password)
     {
         $this->digesta1 = md5($password);
