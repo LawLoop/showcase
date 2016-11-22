@@ -1,7 +1,7 @@
 ﻿import { Component, OnInit } from '@angular/core';
 
 import { User, Project } from '../_models/index';
-import { UserService, ProjectService } from '../_services/index';
+import { ProjectService } from '../_services/index';
 
 @Component({
     moduleId: module.id,
@@ -13,24 +13,17 @@ export class HomeComponent implements OnInit {
     users: User[] = [];
     projects: Project[] = [];
 
-    constructor(private userService: UserService, private projectService: ProjectService) {
+    constructor(private projectService: ProjectService) {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     }
 
     ngOnInit() {
-        this.loadAllUsers();
-    }
-
-    deleteUser(id) {
-        this.userService.delete(id).subscribe(() => { this.loadAllUsers() });
+        //this.loadAllUsers();
+        this.loadAllProjects();
     }
 
     copyDAVLink(title) {
-
-    }
-
-    private loadAllUsers() {
-        this.userService.getAll().subscribe(users => { this.users = users; });
+        alert('Link to ' + title);
     }
 
     private loadAllProjects() {
