@@ -22,7 +22,12 @@ var HomeComponent = (function () {
         this.loadAllProjects();
     };
     HomeComponent.prototype.copyDAVLink = function (title) {
-        alert('Link to ' + title);
+        var url = document.location.href + 'dav/Projects/' + title;
+        var key = 'Ctrl';
+        if (navigator.platform.indexOf('Mac') > -1) {
+            key = 'Cmd';
+        }
+        prompt("Copy to clipboard: " + key + "+C, Enter", url);
     };
     HomeComponent.prototype.loadAllProjects = function () {
         var _this = this;
