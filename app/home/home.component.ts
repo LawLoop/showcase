@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
     }
 
     copyDAVLink(title) {
-        var url = document.location.href + 'dav/Projects/' + title;
+        var url = document.location.href + 'dav/server.php/Projects/' + title;
         var key = 'Ctrl';
         if(navigator.platform.indexOf('Mac') > -1) { key = 'Cmd'; }
         prompt("Copy to clipboard: "+key+"+C, Enter", url);
