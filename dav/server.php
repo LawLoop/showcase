@@ -1,7 +1,11 @@
 <?php
 
 // The autoloader
-require '../api/vendor/autoload.php';
+require_once '../api/vendor/autoload.php';
+require_once 'EFS/Node.php';
+require_once 'EFS/Directory.php';
+require_once 'EFS/File.php';
+require_once 'EFS/Directory.php';
 
 use Sabre\DAV;
 
@@ -12,7 +16,7 @@ if(isset($_REQUEST['project']))
 }
 
 // Now we're creating a whole bunch of objects
-$rootDirectory = new DAV\FS\Directory($path);
+$rootDirectory = new SaberAWS\EFS\Directory($path);
 
 // The server object is responsible for making sense out of the WebDAV protocol
 $server = new DAV\Server($rootDirectory);
