@@ -16,7 +16,7 @@ if(isset($_REQUEST['project']))
 }
 
 // Now we're creating a whole bunch of objects
-$rootDirectory = new SaberAWS\EFS\Directory($path);
+$rootDirectory = new SabreAWS\EFS\Directory($path);
 
 // The server object is responsible for making sense out of the WebDAV protocol
 $server = new DAV\Server($rootDirectory);
