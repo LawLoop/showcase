@@ -4,10 +4,6 @@ date_default_timezone_set('UTC');
 
 // The autoloader
 require_once '../api/vendor/autoload.php';
-require_once 'EFS/Node.php';
-require_once 'EFS/Directory.php';
-require_once 'EFS/File.php';
-require_once 'EFS/Directory.php';
 
 use Sabre\DAV;
 
@@ -18,7 +14,7 @@ if(isset($_REQUEST['project']))
 }
 
 // Now we're creating a whole bunch of objects
-$rootDirectory = new SabreAWS\EFS\Directory($path);
+$rootDirectory = new \Sabre\DAV\FSExt\Directory($path);
 
 // The server object is responsible for making sense out of the WebDAV protocol
 $server = new DAV\Server($rootDirectory);

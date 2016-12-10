@@ -162,6 +162,11 @@ class Directory extends Node implements DAV\ICollection, DAV\IQuota, DAV\IMoveTa
      */
     function getQuotaInfo() {
 
+        // EFS returns funny numbers - return something sufficiently large
+        return [
+            2147483647,
+            2147483647
+        ];
         $total = disk_total_space(realpath($this->path));
         $free = disk_free_space(realpath($this->path));
 
@@ -170,6 +175,7 @@ class Directory extends Node implements DAV\ICollection, DAV\IQuota, DAV\IMoveTa
             $free
         ];
     }
+
 
     /**
      * Moves a node into this collection.
