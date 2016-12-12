@@ -140,6 +140,11 @@ class Directory extends Node implements DAV\ICollection, DAV\IQuota {
      * @return array
      */
     function getQuotaInfo() {
+        // EFS returns funny numbers - return something sufficiently large
+        return [
+            2147483647,
+            2147483647
+        ];
         $absolute = realpath($this->path);
         return [
             disk_total_space($absolute) - disk_free_space($absolute),

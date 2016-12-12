@@ -14,7 +14,8 @@ if(isset($_REQUEST['project']))
 }
 
 // Now we're creating a whole bunch of objects
-$rootDirectory = new \Sabre\DAV\FSExt\Directory($path);
+$rootDirectory = new \Sabre\DAV\FS\Directory($path);
+//$rootDirectory = new \Sabre\DAV\FSExt\Directory($path);
 
 // The server object is responsible for making sense out of the WebDAV protocol
 $server = new DAV\Server($rootDirectory);
