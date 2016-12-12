@@ -1,6 +1,5 @@
 # Turn on the RewriteEngine
 RewriteEngine On
+RewriteBase  /dav/
 #  Rules
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . server.php
+RewriteRule ^(.+) index.php [L]

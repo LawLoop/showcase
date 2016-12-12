@@ -14,7 +14,7 @@ if(isset($_REQUEST['project']))
 }
 
 // Now we're creating a whole bunch of objects
-$rootDirectory = new \Sabre\DAV\FS\Directory($path);
+$rootDirectory = new \Sabre\DAV\FSExt\Directory($path);
 //$rootDirectory = new \Sabre\DAV\FSExt\Directory($path);
 
 // The server object is responsible for making sense out of the WebDAV protocol
@@ -22,7 +22,7 @@ $server = new DAV\Server($rootDirectory);
 
 // If your server is not on your webroot, make sure the following line has the
 // correct information
-$server->setBaseUri('/dav/server.php');
+$server->setBaseUri('/dav/');
 
 // The lock manager is reponsible for making sure users don't overwrite
 // each others changes.
