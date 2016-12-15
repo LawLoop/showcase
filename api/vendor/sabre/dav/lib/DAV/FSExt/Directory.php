@@ -41,11 +41,18 @@ class Directory extends Node implements DAV\ICollection, DAV\IQuota, DAV\IMoveTa
     function createFile($name, $data = null) {
 
         // We're not allowing dots
-        if ($name == '.' || $name == '..') throw new DAV\Exception\Forbidden('Permission denied to . and ..');
+        if ($name == '.' || $name == '..')
+        {
+            $this->log("createFile({$name},data) ERROR: Permission denied to . and ..");
+            throw new DAV\Exception\Forbidden('Permission denied to . and ..');
+        }
         $newPath = $this->path . '/' . $name;
+
+        $this->log("createFile({$name}) {$newPath}");
         file_put_contents($newPath, $data);
         clearstatcache(true, $newPath);
-
+        $size = filesize($newPath);
+        $this->log("after_createFile({$size})  {$newPath}");
         return '"' . sha1(
             fileinode($newPath) .
             filesize($newPath) .
@@ -63,7 +70,11 @@ class Directory extends Node implements DAV\ICollection, DAV\IQuota, DAV\IMoveTa
     function createDirectory($name) {
 
         // We're not allowing dots
-        if ($name == '.' || $name == '..') throw new DAV\Exception\Forbidden('Permission denied to . and ..');
+        if ($name == '.' || $name == '..')
+        {
+            $this->log("createDirectory({$name}) ERROR: Permission denied to . and ..");
+            throw new DAV\Exception\Forbidden('Permission denied to . and ..');
+        }
         $newPath = $this->path . '/' . $name;
         mkdir($newPath);
         clearstatcache(true, $newPath);
@@ -161,7 +172,7 @@ class Directory extends Node implements DAV\ICollection, DAV\IQuota, DAV\IMoveTa
      * @return array
      */
     function getQuotaInfo() {
-
+        $this->log("getQuotaInfo()");
         // EFS returns funny numbers - return something sufficiently large
         return [
             2147483647,
@@ -202,13 +213,15 @@ class Directory extends Node implements DAV\ICollection, DAV\IQuota, DAV\IMoveTa
         // We only support FSExt\Directory or FSExt\File objects, so
         // anything else we want to quickly reject.
         if (!$sourceNode instanceof self && !$sourceNode instanceof File) {
+            $this->log("moveInto({$targetName},{$sourcePath},{$sourceNode}) FAILED");
             return false;
         }
 
         // PHP allows us to access protected properties from other objects, as
         // long as they are defined in a class that has a shared inheritence
         // with the current class.
-        rename($sourceNode->path, $this->path . '/' . $targetName);
+        rename($sourceNode->path, $this->path . '/' . $targetName);            
+        $this->log("moveInto({$targetName},{$sourcePath},{$sourceNode})");
 
         return true;
 
