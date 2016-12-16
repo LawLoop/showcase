@@ -3,7 +3,7 @@ header('Access-Control-Allow-Origin: *');
 date_default_timezone_set('UTC');
 
 // The autoloader
-require_once '../api/vendor/autoload.php';
+require_once 'api/vendor/autoload.php';
 
 use Sabre\DAV;
 
