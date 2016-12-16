@@ -150,6 +150,18 @@ class Directory extends Node implements DAV\ICollection, DAV\IQuota, DAV\IMoveTa
 
     }
 
+    function getSize() 
+    {
+        $size = 0;
+
+        foreach($this->getChildren() as $child)
+        {
+            $size += $child->getSize();
+        }
+
+        return $size;
+    }
+
     /**
      * Deletes all files in this directory, and then itself
      *
@@ -177,17 +189,18 @@ class Directory extends Node implements DAV\ICollection, DAV\IQuota, DAV\IMoveTa
 
         $total = disk_total_space(realpath($this->path));
         $free = disk_free_space(realpath($this->path));
-        $remaining = $total - $free;
+        //$used = $total - $free;
+        $used = $this->getSize();
 
-        $this->log("getQuotaInfo() : total={$total}, free={$free}, remaining={$remaining}");
+        $this->log("getQuotaInfo() : total={$total}, free={$free}, used={$used}");
 
         return [
-            $total - $free,
+            $used,
             $free
         ];
 
         return [
-            2147483647,
+            0,
             2147483647
         ];
 
