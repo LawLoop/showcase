@@ -7,7 +7,7 @@ require_once '../api/vendor/autoload.php';
 
 use Sabre\DAV;
 
-$path = '/efs/dav/';
+$path = '/efs_local/dav/';
 if(isset($_REQUEST['project']))
 {
     $path .= 'Projects/'.$_REQUEST['project'];
@@ -26,7 +26,7 @@ $server->setBaseUri('/dav/');
 
 // The lock manager is reponsible for making sure users don't overwrite
 // each others changes.
-$lockBackend = new DAV\Locks\Backend\File('/efs/locks');
+$lockBackend = new DAV\Locks\Backend\File('/efs_local/locks');
 $lockPlugin = new DAV\Locks\Plugin($lockBackend);
 $server->addPlugin($lockPlugin);
 
