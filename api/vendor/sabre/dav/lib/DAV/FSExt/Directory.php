@@ -48,6 +48,7 @@ class Directory extends Node implements DAV\ICollection, DAV\IQuota, DAV\IMoveTa
         }
         $newPath = $this->path . '/' . $name;
 
+        $newPath = str_replace('//', '/', $newPath);
         $this->log("createFile({$name}) {$newPath}");
         file_put_contents($newPath, $data);
         clearstatcache(true, $newPath);
@@ -172,19 +173,24 @@ class Directory extends Node implements DAV\ICollection, DAV\IQuota, DAV\IMoveTa
      * @return array
      */
     function getQuotaInfo() {
-        $this->log("getQuotaInfo()");
         // EFS returns funny numbers - return something sufficiently large
-        return [
-            2147483647,
-            2147483647
-        ];
+
         $total = disk_total_space(realpath($this->path));
         $free = disk_free_space(realpath($this->path));
+        $remaining = $total - $free;
+
+        $this->log("getQuotaInfo() : total={$total}, free={$free}, remaining={$remaining}");
 
         return [
             $total - $free,
             $free
         ];
+
+        return [
+            2147483647,
+            2147483647
+        ];
+
     }
 
 
