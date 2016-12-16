@@ -1,0 +1,5 @@
+# Turn on the RewriteEngine
+RewriteEngine On
+RewriteBase  /dav/
+#  Rules
+RewriteRule ^(.+) index.php [L]
