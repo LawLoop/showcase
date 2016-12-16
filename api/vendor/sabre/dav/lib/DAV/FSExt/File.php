@@ -23,16 +23,9 @@ class File extends Node implements DAV\PartialUpdate\IPatchSupport {
      * @return string
      */
     function put($data) {
-        $size = "resource";
-        if(is_string($data))
-        {
-            $size = strlen($data);
-        }
-        $this->log("before_put({$size}) {$this->path}");
+
         file_put_contents($this->path, $data);
         clearstatcache(true, $this->path);
-        $size = filesize($this->path);
-        $this->log("after_put({$size})  {$this->path}");
         return $this->getETag();
 
     }
@@ -66,7 +59,6 @@ class File extends Node implements DAV\PartialUpdate\IPatchSupport {
      */
     function patch($data, $rangeType, $offset = null) {
 
-        $this->log("patch({$data},{$rangeType},{$offset})  {$this->path}");
         switch ($rangeType) {
             case 1 :
                 $f = fopen($this->path, 'a');
@@ -87,8 +79,6 @@ class File extends Node implements DAV\PartialUpdate\IPatchSupport {
         }
         fclose($f);
         clearstatcache(true, $this->path);
-        $size = filesize($this->path);
-        $this->log("after_patch({$size})  {$this->path}");
         return $this->getETag();
 
     }

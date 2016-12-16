@@ -297,7 +297,7 @@ class Request
         // Get all of our request params
         $params = $this->params();
 
-            return isset($params[$key]) ? $params[$key] : $default;
+        return isset($params[$key]) ? $params[$key] : $default;
     }
 
     /**

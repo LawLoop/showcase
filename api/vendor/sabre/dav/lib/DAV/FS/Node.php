@@ -77,11 +77,4 @@ abstract class Node implements DAV\INode {
 
     }
 
-    function log($msg)
-    {
-        $class = get_class($this);
-        $message = "{$class}:$msg";
-        file_put_contents('/tmp/dav.log', $message.PHP_EOL , FILE_APPEND | LOCK_EX);
-    }
-
 }
