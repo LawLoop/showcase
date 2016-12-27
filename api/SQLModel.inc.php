@@ -125,10 +125,10 @@ CQUERY;
 		$column_names = $class::column_names();
 		foreach($column_names as $n)
 		{
-			if(array_key_exists($n, $values))
+			$camel = static::CamelCaseFromUnderscore($n);
+			if(array_key_exists($camel, $values))
 			{
-                $attribute_name = static::CamelCaseFromUnderscore($n);
-				$this->$attribute_name = $values[$n];
+				$this->$n = $values[$camel];
 			}
 		}
 		foreach($values as $k => $v)

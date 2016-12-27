@@ -26,12 +26,12 @@ class RESTController
     // update
     public function update($request, $response)
     {
-        global $__PUT;
+        global $_PUT;
         $class = $this->__class;
         $object = $class::find($request->id);
         if (!empty($object))
         {
-            $object->takeValues($__PUT);
+            $object->takeValues($_PUT);
             $object->save();
             $response->json($object);
         }
@@ -45,7 +45,7 @@ class RESTController
     public function create($request, $response)
     {
         $class = $this->__class;
-        $object = new $class($request->paramsPost());
+        $object = new $class($_POST);
         try
         {
             $object->save();

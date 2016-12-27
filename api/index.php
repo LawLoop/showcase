@@ -2,6 +2,8 @@
 /* Parse input into PHP globals because angular doesn't pass parameters normally but
  * instead sends them in the body as json.  Stupid Angular.
  */
+header('Access-Control-Allow-Origin: *');
+date_default_timezone_set('UTC');
 
 $__params = json_decode(file_get_contents('php://input'),true);
 if(!is_array($__params)) { $__params = []; }
@@ -60,6 +62,12 @@ $klein->with('/api',function () use ($klein) {
     {
         $controller = new RESTController('User');
         $controller->all($request,$response,['username']);
+    });
+
+    $klein->respond('POST','/users',function($request, $response)
+    {
+        $controller = new RESTController('User');
+        $controller->create($request,$response);
     });
 
     // get one
